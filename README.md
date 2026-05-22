@@ -164,7 +164,7 @@ A workflow-aligned breast imaging instruction corpus.
 | Pair distribution | 57.9 % screening · 36.7 % diagnosis · 5.4 % treatment |
 | Task families | Closed-ended VQA · Open-ended VQA · Grounding · Captioning · Report generation |
 
-Data release will follow the licenses, privacy constraints, and institutional governance of the underlying datasets.
+Data release will follow the licenses, privacy constraints, and institutional governance of the underlying datasets. The annotation JSONs reference image paths only — the upstream image collections must be downloaded separately. [`dataset/`](./dataset/) ships the per-source download links, on-disk layouts, and image-preprocessing scripts needed to reproduce the training media.
 
 ---
 
@@ -199,16 +199,24 @@ It features:
 │       └── third_parts/                #   light-weight vendored deps (mmdet / revos)
 ├── thirdParty/
 │   └── ms-swift/                       # vendored ms-swift fork used for training/inference
-└── scripts/
-    ├── swift_train_full_node.sh        # multi-node Stage-2 full-parameter training
-    └── swift_infer_breastgpt_8B.sh     # batch inference over BreastStage-Bench
+├── scripts/
+│   ├── swift_train_full_node.sh        # multi-node Stage-2 full-parameter training
+│   └── swift_infer_breastgpt_8B.sh     # batch inference over BreastStage-Bench
+└── dataset/                            # per-source image preprocessing for BreastStage
+    ├── resize.py                       #   stage-2 BreastGPT input resize (token-budget / 384×48 NIfTI)
+    ├── BUS/BUS-CoT/                    #   ultrasound — BUS-CoT
+    ├── CT/CT-RATE/                     #   chest CT — CT-RATE
+    ├── Histopathology/                 #   WSI — TCGA-BRCA · BCNB · HISTAI-breast
+    ├── MRI/{FUDAN, ZHE2}/              #   breast MRI — DUA-only
+    └── Mammography/                    #   BMCD · CBIS-DDSM · CDD-CESM · CSAW-M · DMID · EMBED
+                                        #   INbreast · KAU-BCMD · MIAS · RSNA · VinDr
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-> Model checkpoints and the BreastStage dataset will be released after paper review and data-governance checks. The code below — the model architecture, the training plugin, and the training script — is what ships in this repository.
+> The BreastStage corpus and the BreastGPT-8B checkpoint are on ModelScope (see badges above). This repository ships the model code, the training / inference pipeline, and the per-source image preprocessing recipes used to assemble BreastStage from public datasets.
 
 ### 1. Install
 
@@ -256,6 +264,19 @@ bash scripts/swift_infer_breastgpt_8B.sh path/to/BreastGPT-8B 1024
 
 Tune `SELECT_IMAGE_NUM` / `SELECT_HISTO_NUM` / `SELECT_VIDEO_NUM` to control the concept-based token budget per modality. For high-throughput serving, swap `--infer_backend pt` for `vllm`.
 
+### 4. Prepare your own data
+
+BreastStage's annotation JSONs reference image paths but do not ship the images. To reproduce the training data locally, download each upstream public dataset under its own license, then run the matching script in [`dataset/`](./dataset/). Each per-source folder has its own `README.md` covering the download URL, on-disk layout, and a `preprocess.py` that does the dataset-specific image work (DICOM → PNG, breast-region cropping, mask rendering, WSI patching). A common second-stage `dataset/resize.py` then resizes everything to BreastGPT's canonical input sizes.
+
+```bash
+# example: BMCD
+cd dataset/Mammography/BMCD
+python preprocess.py                                          # dataset-specific image extraction
+python ../../resize.py tree ./Processed ./RESIZED             # canonical BreastGPT resize
+```
+
+See [`dataset/README.md`](./dataset/README.md) for the full per-dataset table.
+
 ---
 
 ## 🗺️ Roadmap
@@ -268,6 +289,7 @@ Tune `SELECT_IMAGE_NUM` / `SELECT_HISTO_NUM` / `SELECT_VIDEO_NUM` to control the
 - [x] BreastStage training corpus release ([ModelScope](https://www.modelscope.cn/datasets/YYangYang/BreastStage))
 - [x] BreastGPT-8B model checkpoint release ([ModelScope](https://www.modelscope.cn/models/YYangYang/BreastGPT-8B))
 - [x] Batch inference script (BreastStage-Bench)
+- [x] Per-dataset image preprocessing recipes ([`dataset/`](./dataset/))
 - [ ] Single-case inference demo
 - [ ] Per-modality fine-tuning recipes
 
