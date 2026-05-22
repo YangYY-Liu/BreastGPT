@@ -170,20 +170,13 @@ Data release will follow the licenses, privacy constraints, and institutional go
 
 ## 🌐 Project Page
 
-A live, animated project page is included in this repository at [`docs/`](./docs/) and is served via **GitHub Pages** at the repository's Pages URL.
+A live, animated project page is hosted at **[anonymous.4open.science/w/BreastGPT_io](https://anonymous.4open.science/w/BreastGPT_io/)**.
 
 It features:
 
 - An **8-second animated workflow** tracing Patient → Screening → Diagnosis → Treatment, with a trajectory rail that lights up cumulatively.
 - Stage-aware modality previews (BUS · Mammo · CT · MRI · WSI) on each stage node.
 - Full results table, ablation panels (token budget sweep, WSI latency), and qualitative case studies.
-
-To run the page locally:
-
-```bash
-cd docs && python3 -m http.server 8765
-# open http://localhost:8765
-```
 
 ---
 
