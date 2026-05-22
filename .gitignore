@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+build/
+dist/
+.eggs/
+pip-wheel-metadata/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Local artifacts
+infer_outputs/
+outputs/
+checkpoints/
+modelscope/
+swanlog/
+*.log
+
+# Model weights / dataset caches accidentally placed in-tree
+*.safetensors
+*.bin
+*.ckpt
+*.pt
+*.pth
+model/architectures/saved_models/
+model/output/
+
+# Large media / scratch
+*.nii
+*.nii.gz
+*.h5
+*.npy

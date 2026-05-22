@@ -1,0 +1,38 @@
+BreastGPT — Anonymous-Review License Notice
+=============================================
+
+This repository is shared in support of a peer-reviewed scientific
+submission and is currently in an anonymous review state.
+
+During anonymous review:
+
+  - The materials in this repository are made available for non-commercial,
+    review-only inspection by the program committee and reviewers of the
+    submitting venue.
+
+  - No additional rights are granted, by implication or otherwise. The
+    code, model weights (if and when released), dataset references, and
+    documentation may not be redistributed, reused in derivative works,
+    deployed in production systems, or used to train commercial models
+    without explicit written permission.
+
+  - No clinical use is permitted. See the medical disclaimer below.
+
+  - No attempt should be made to de-anonymize the authors via repository
+    metadata, commit history, or related artefacts.
+
+Final licensing terms — covering the code, model checkpoints, and any
+released portions of the BreastStage dataset — will be specified at the
+time of de-anonymization, after governance, privacy, and institutional
+review have completed.
+
+Medical disclaimer
+------------------
+
+BreastGPT is a research system. It is not a medical device. It is not
+intended for clinical deployment or for independent medical
+decision-making. Any clinical application would require prospective
+validation, regulatory review, and supervision by qualified medical
+professionals.
+
+— BreastGPT authors (anonymous)
