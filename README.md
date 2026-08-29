@@ -5,16 +5,16 @@
 ### A Multimodal Large Language Model for the Full Spectrum of Breast Cancer Clinical Routine
 
 <p>
-  <a href="#-overview"><img alt="Paper" src="https://img.shields.io/badge/Paper-Under__review-7c2d5f?style=flat-square&logo=arxiv&logoColor=white"></a>
-  <a href="https://anonymous.4open.science/w/BreastGPT_io/" target="_blank"><img alt="Project Page" src="https://img.shields.io/badge/Project%20Page-Live-ec4899?style=flat-square&logo=githubpages&logoColor=white"></a>
+  <a href="https://yangyy-liu.github.io/BreastGPT.io/my-paper/emnlp_2026.pdf" target="_blank"><img alt="Paper" src="https://img.shields.io/badge/Paper-EMNLP%202026%20Main-7c2d5f?style=flat-square&logo=arxiv&logoColor=white"></a>
+  <a href="https://yangyy-liu.github.io/BreastGPT.io/" target="_blank"><img alt="Project Page" src="https://img.shields.io/badge/Project%20Page-Live-ec4899?style=flat-square&logo=githubpages&logoColor=white"></a>
   <a href="https://www.modelscope.cn/models/YYangYang/BreastGPT-8B" target="_blank"><img alt="Model" src="https://img.shields.io/badge/Model-BreastGPT--8B-f59e0b?style=flat-square&logo=huggingface&logoColor=white"></a>
   <a href="https://www.modelscope.cn/datasets/YYangYang/BreastStage" target="_blank"><img alt="BreastStage" src="https://img.shields.io/badge/Dataset-BreastStage-c026d3?style=flat-square&logo=databricks&logoColor=white"></a>
   <a href="https://www.modelscope.cn/datasets/YYangYang/BreastStage-Bench" target="_blank"><img alt="BreastStage-Bench" src="https://img.shields.io/badge/Benchmark-BreastStage--Bench-a21caf?style=flat-square&logo=databricks&logoColor=white"></a>
   <br>
   <img alt="Python" src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white">
   <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.4+-EE4C2C?style=flat-square&logo=pytorch&logoColor=white">
-  <img alt="Status" src="https://img.shields.io/badge/Status-Under%20Review-94a3b8?style=flat-square">
-  <img alt="License" src="https://img.shields.io/badge/License-Anonymous%20Review-94a3b8?style=flat-square">
+  <img alt="Status" src="https://img.shields.io/badge/Status-EMNLP%202026%20Main%20Conference-16a34a?style=flat-square">
+  <img alt="License" src="https://img.shields.io/badge/License-Apache--2.0-2563eb?style=flat-square">
   <img alt="Backbone" src="https://img.shields.io/badge/Backbone-Qwen3--VL%208B-1c1024?style=flat-square">
 </p>
 
@@ -170,7 +170,7 @@ Data release will follow the licenses, privacy constraints, and institutional go
 
 ## 🌐 Project Page
 
-A live, animated project page is hosted at **[anonymous.4open.science/w/BreastGPT_io](https://anonymous.4open.science/w/BreastGPT_io/)**.
+A live, animated project page is hosted at **[yangyy-liu.github.io/BreastGPT.io](https://yangyy-liu.github.io/BreastGPT.io/)**.
 
 It features:
 
@@ -281,7 +281,7 @@ See [`dataset/README.md`](./dataset/README.md) for the full per-dataset table.
 
 ## 🗺️ Roadmap
 
-- [x] Paper submission (NeurIPS 2026 · under review)
+- [x] Paper accepted at **EMNLP 2026 Main Conference**
 - [x] Project page (animated workflow, results, case studies)
 - [x] Model architecture code (dual-branch encoder, concept-based token selector)
 - [x] Training pipeline (vendored ms-swift + multi-node training script)
@@ -303,8 +303,8 @@ BreastGPT builds on [**Qwen3-VL**](https://github.com/QwenLM/Qwen3-VL), [**CONCH
 
 ## ⚖️ License & Disclaimer
 
-**License.** Anonymous-review posture; final licensing terms will be specified at de-anonymization.
+**Code license.** BreastGPT source code is released under the [Apache License 2.0](./LICENSE). Third-party components retain their respective licenses.
 
-**Anonymity.** Authorship details are intentionally withheld during peer review.
+**Data and model license.** BreastStage, BreastStage-Bench, and BreastGPT model weights are released under CC BY-NC 4.0, subject to the licenses, privacy constraints, and institutional governance of the underlying datasets.
 
 **Medical disclaimer.** BreastGPT is a **research** system and is **not** intended for clinical deployment or independent medical decision-making.
